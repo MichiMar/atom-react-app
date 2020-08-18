@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+// data
 import { todos } from './todos.json';
+
+// subcomponents
+import TodoForm from './Components/TodoForm';
 
 class App extends Component {
   constructor () {
@@ -10,7 +14,15 @@ class App extends Component {
     this.state = {
       todos
     }
+    this.handleAddTodo = this.handleAddTodo.bind(this);
   }
+
+  handleAddTodo(todo) {
+    this.setState({
+      todos: [...this.state.todos, todo]
+    })
+  }
+
 
   render () {
   const todos = this.state.todos.map((todo, i) => {
@@ -44,11 +56,19 @@ class App extends Component {
       </nav>
 
       <div classname="container">
-          <div className="row mt-5">
-            { todos }
+        <div className="row mt-4">
+          <div className="col-md-3">
+            <img src={logo} className="App-logo" alt="logo" />
+            <TodoForm />
+          </div>
+          <div className="col-md-9">
+            <div classname="row">
+              { todos }
+            </div>
           </div>
         </div>
-      <img src={logo} className="App-logo" alt="logo" />
+      </div>
+
     </div>
   );
 }

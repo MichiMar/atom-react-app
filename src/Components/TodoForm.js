@@ -65,7 +65,9 @@ class TodoForm extends Component {
               <option>low</option>
               <option>medium</option>
               <option>high</option>
+            </select>
           </div>
+
           <button type="submit" className="btn btn-primary">
             save
           </button>
@@ -74,3 +76,5 @@ class TodoForm extends Component {
     )
   }
 }
+
+export default TodoForm;
